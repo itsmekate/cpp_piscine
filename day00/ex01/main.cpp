@@ -75,20 +75,11 @@ void	search(Contact c[8], int i)
 		if (j < i)
 			break;
 	}
-	// if (j < i)
 	otput_information(j, c);
-	// else
-	// {
-	// 	std::cout << "Please choose excisting contact to display:";
-	// 	//if wrong again quits
-	// 	std::cin >> j;
-	// 	if (j < i)
-	// 		otput_information(j, c);
-	// }
 }
 
-int main() {
-
+int main( void )
+{
 	int i = 0;
 	std::string	input;
 	Contact c[8];
