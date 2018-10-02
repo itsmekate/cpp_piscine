@@ -30,3 +30,6 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+%.o: %.cpp
+	g++ $(FLAGS) -o $@ -c $<

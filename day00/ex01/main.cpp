@@ -81,14 +81,15 @@ void	search(Contact c[8], int i)
 int main( void )
 {
 	int i = 0;
-	std::string	input;
+	std::string	input = "";
 	Contact c[8];
 
 	while (1)
 	{
 		std::cout << "\x1B[1m" << "Please enter command name:" << "\033[0m" << std::endl;
-		std::cin >> input;
-		
+		std::getline( std::cin, input);
+		if (std::cin.eof()==1)
+			break ;
 		if (i == 8)
 			std::cout << "You've reached max number of contacts" << std::endl;
 		if (input == "SEARCH")

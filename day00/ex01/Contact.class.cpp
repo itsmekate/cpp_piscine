@@ -62,5 +62,3 @@ void	Contact::add( void ) {
 
 	return;
 }
-
- // g++ -Wall -Wextra -Werror Contact.class.cpp main.cpp
