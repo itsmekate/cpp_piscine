@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
+/*   Human.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kprasol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/02 18:49:32 by kprasol           #+#    #+#             */
-/*   Updated: 2018/10/02 18:49:34 by kprasol          ###   ########.fr       */
+/*   Created: 2018/10/03 14:58:55 by kprasol           #+#    #+#             */
+/*   Updated: 2018/10/03 14:58:56 by kprasol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_EVENT_HPP
-# define ZOMBIE_EVENT_HPP
+#include "Human.hpp"
 
-#include <string>
-#include "Zombie.hpp"
+Human::Human( void ){
+	std::cout << "Human was born" << std::endl;
+	return ;
+}
 
-class ZombieEvent {
+Human::~Human( void ){
+	std::cout << "Human died" << std::endl;
+	return ;
+}
 
-	private:
-		std::string _ZombieType;
+std::string	Human::identify( void ){
+	return (brain.identify());
+}
 
-	public:
-
-		ZombieEvent( void );
-		~ZombieEvent( void );
-
-		void	setZombieType(std::string type);
-		Zombie* newZombie(std::string name);
-		void	randomChump( void );
-};
-
-
-#endif
+Brain const	&Human::getBrain( void) {
+	return (brain);
+}

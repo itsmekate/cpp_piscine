@@ -43,7 +43,6 @@ void	Zombie::announce( void ) const {
 std::string	Zombie::randomName( void )
 {
 	std::string names[6] = {"Mark", "Dan", "Julia", "Robert", "Anna", "Kurt"};
-	srand( time( NULL ) );
 	int randNum = rand() % 6;
 
 	return (names[randNum]);

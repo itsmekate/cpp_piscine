@@ -14,19 +14,16 @@
 #include <string>
 #include "ZombieEvent.hpp"
 
-Zombie*	randomChump( void )
-{
-	return 0;
-}
-
 int main( void ){
 
-	Zombie* cole = new Zombie();
+	ZombieEvent event;
 
-	cole->setName("Cole");
-	cole->setType("firefighter");
-	cole->announce();
+	event.setZombieType("scary");
+	Zombie *z1 = event.newZombie("Roma");
 
-	delete cole;
+	event.randomChump();
+	z1->announce();
+
+	delete z1;
 	return 0;
 }

@@ -7,6 +7,7 @@ OBJ = $(SRCS:.cpp=.o)
 CPPFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
+	@echo "\033[0;32mEXETUTABLE [pony] CREATED"
 
 $(NAME):
 	clang++ $(CPPFLAGS) $(SRCS) -o $(NAME)

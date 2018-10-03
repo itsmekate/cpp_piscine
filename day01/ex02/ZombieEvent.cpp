@@ -10,26 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
+#include <random>
 #include "ZombieEvent.hpp"
 
 ZombieEvent::ZombieEvent( void ){
-
-	return;
 }
 
 ZombieEvent::~ZombieEvent( void ){
-
-	return;
 }
 
 void	ZombieEvent::setZombieType( std::string type )
 {
-	type = type;
+	this->_ZombieType = type;
 }
 
-Zombie* newZombie(std::string name)
+Zombie* ZombieEvent::newZombie(std::string name)
 {
-	Zombie* buddy = new Zombie;
-	
+	Zombie* buddy = new Zombie(name, _ZombieType);
 	return (buddy);
+}
+
+void	ZombieEvent::randomChump( void )
+{
+	Zombie new_zombie = Zombie(Zombie::randomName(), _ZombieType);
+	new_zombie.announce();
 }

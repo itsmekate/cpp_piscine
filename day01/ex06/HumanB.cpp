@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kprasol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/02 18:49:32 by kprasol           #+#    #+#             */
-/*   Updated: 2018/10/02 18:49:34 by kprasol          ###   ########.fr       */
+/*   Created: 2018/10/03 15:32:56 by kprasol           #+#    #+#             */
+/*   Updated: 2018/10/03 15:32:59 by kprasol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_EVENT_HPP
-# define ZOMBIE_EVENT_HPP
-
+#include <iostream>
 #include <string>
-#include "Zombie.hpp"
+#include "HumanB.hpp"
 
-class ZombieEvent {
+HumanB::HumanB(std::string n)
+{
+	_name = n;
+	return ;
+}
 
-	private:
-		std::string _ZombieType;
+HumanB::~HumanB(void)
+{
+	return ;
+}
 
-	public:
+void	HumanB::attack(void)
+{
+	std::cout << _name << " attacks with his " << _weapon->getType() << std::endl;
+}
 
-		ZombieEvent( void );
-		~ZombieEvent( void );
-
-		void	setZombieType(std::string type);
-		Zombie* newZombie(std::string name);
-		void	randomChump( void );
-};
-
-
-#endif
+void	HumanB::setWeapon(Weapon &weapon)
+{
+	this->_weapon = &weapon;
+}

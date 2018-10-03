@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
+/*   Human.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kprasol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/02 18:49:32 by kprasol           #+#    #+#             */
-/*   Updated: 2018/10/02 18:49:34 by kprasol          ###   ########.fr       */
+/*   Created: 2018/10/03 14:58:59 by kprasol           #+#    #+#             */
+/*   Updated: 2018/10/03 14:59:00 by kprasol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_EVENT_HPP
-# define ZOMBIE_EVENT_HPP
+#ifndef HUMAN_HPP
+# define HUMAN_HPP
 
+#include "Brain.hpp"
+#include <iostream>
 #include <string>
-#include "Zombie.hpp"
 
-class ZombieEvent {
-
+class Human
+{
 	private:
-		std::string _ZombieType;
+		Brain const brain;
+
 
 	public:
-
-		ZombieEvent( void );
-		~ZombieEvent( void );
-
-		void	setZombieType(std::string type);
-		Zombie* newZombie(std::string name);
-		void	randomChump( void );
+		Human( void );
+		~Human( void );
+		std::string identify( void );
+		Brain const & getBrain( void );
 };
 
-
 #endif
+

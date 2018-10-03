@@ -17,10 +17,9 @@ class Zombie {
 		std::string		_type;
 
 	public:
+		Zombie(std::string s, std::string t);
 		Zombie( void );
 		~Zombie( void );
-
-		void	setName( std::string n);
-		void	setType( std::string t);
 		void	announce( void ) const;
+		static std::string		randomName( void );
 };

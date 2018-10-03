@@ -1,35 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kprasol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/02 18:49:32 by kprasol           #+#    #+#             */
-/*   Updated: 2018/10/02 18:49:34 by kprasol          ###   ########.fr       */
+/*   Created: 2018/10/03 15:32:41 by kprasol           #+#    #+#             */
+/*   Updated: 2018/10/03 15:32:42 by kprasol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_EVENT_HPP
-# define ZOMBIE_EVENT_HPP
-
+#include <iostream>
 #include <string>
-#include "Zombie.hpp"
+#include "HumanA.hpp"
 
-class ZombieEvent {
+HumanA::HumanA(std::string n)
+{
+	_name = n;
+	return ;
+}
 
-	private:
-		std::string _ZombieType;
+HumanA::HumanA(std::string n, Weapon &w)
+{
+	_weapon = &w;
+	_name = n;
+	return ;
+}
 
-	public:
+HumanA::~HumanA(void)
+{
+	return ;
+}
 
-		ZombieEvent( void );
-		~ZombieEvent( void );
+void	HumanA::attack(void)
+{
+	std::cout << _name << " attacks with his " << _weapon->getType() << std::endl;
+}
 
-		void	setZombieType(std::string type);
-		Zombie* newZombie(std::string name);
-		void	randomChump( void );
-};
-
-
-#endif
+void	HumanA::setWeapon(Weapon *weapon)
+{
+	this->_weapon = weapon;
+}
