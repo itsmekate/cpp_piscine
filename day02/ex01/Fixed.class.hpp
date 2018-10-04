@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kprasol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/04 12:41:22 by kprasol           #+#    #+#             */
-/*   Updated: 2018/10/04 12:41:23 by kprasol          ###   ########.fr       */
+/*   Created: 2018/10/04 15:36:04 by kprasol           #+#    #+#             */
+/*   Updated: 2018/10/04 15:36:05 by kprasol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,17 @@ class Fixed
 
 	public:
 
-		Fixed( void);
-		Fixed( const int n ); 					
+		Fixed( void );
+		Fixed( const int n ); 	
+		Fixed( const float n ); 					
 		Fixed( Fixed const & src); 				
 		Fixed & operator=(Fixed const & rhs);	
 		~Fixed( void ); 						
 
 		int	getRawBits( void ) const;
 		void setRawBits( int const raw);
+		float toFloat( void ) const;
+		int toInt( void ) const;
 	
 	private:
 		int	_n;
