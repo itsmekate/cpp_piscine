@@ -1,62 +1,63 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*   SuperTrap.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kprasol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/04 20:29:09 by kprasol           #+#    #+#             */
-/*   Updated: 2018/10/04 20:29:10 by kprasol          ###   ########.fr       */
+/*   Created: 2018/10/05 18:42:17 by kprasol           #+#    #+#             */
+/*   Updated: 2018/10/05 18:42:18 by kprasol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "SuperTrap.hpp"
 #include "FragTrap.hpp"
+#include "NinjaTrap.hpp"
 #include <string>
 #include <iostream>
 
-FragTrap::FragTrap(void)
+SuperTrap::SuperTrap(void)
 {
 	srand( time( NULL ) );
 	_hitPoints = 100;
 	_maxHitPoints = 100;
-	_energyPoints = 100;
+	_energyPoints = __;
 	_maxEnegryPoints = 100;
 	_level = 1;
 	_name = "Default name";
-	_melleeAttackDamage = 30;
+	_melleeAttackDamage = __;
 	_rangedAttackDamage = 20;
 	_armorDamageReduction = 5;
-	std::cout << "FragTrap Robot created" << std::endl;
+	std::cout << "SuperTrap Robot created" << std::endl;
 	return ;
 }
 
-FragTrap::FragTrap(std::string n)
+SuperTrap::SuperTrap(std::string n)
 {
 	srand( time( NULL ) );
 	_hitPoints = 100;
 	_maxHitPoints = 100;
-	_energyPoints = 100;
+	_energyPoints = __;
 	_maxEnegryPoints = 100;
 	_level = 1;
 	_name = n;
-	_melleeAttackDamage = 30;
+	_melleeAttackDamage = __;
 	_rangedAttackDamage = 20;
 	_armorDamageReduction = 5;
-	std::cout << "FragTrap Robot created" << std::endl;
+	std::cout << "SuperTrap Robot created" << std::endl;
 	return ;
 }
-FragTrap::~FragTrap(void)
+SuperTrap::~SuperTrap(void)
 {
-	std::cout << "FragTrap Robot destroyed" << std::endl;
+	std::cout << "SuperTrap Robot destroyed" << std::endl;
 	return ;
 }
-FragTrap::FragTrap(const FragTrap& src)
+SuperTrap::SuperTrap(const SuperTrap& src)
 {
 	*this = src;
 	return ;
 }
-FragTrap& FragTrap::operator = (const FragTrap& rhs)
+SuperTrap& SuperTrap::operator = (const SuperTrap& rhs)
 {
 	if(this != &rhs)
 	{
@@ -73,21 +74,7 @@ FragTrap& FragTrap::operator = (const FragTrap& rhs)
 	return *this;
 }
 
-void 		FragTrap::vaulthunter_dot_exe(std::string const & target)
-{
-	std::string attacks_pool[5] = {"superStrongAttack", "mildAttack", "justUsualAttack", "megaAttack", "crazyAttack"};
-	int randNum = rand() % 5;
-
-	if (_energyPoints >= 25)
-	{
-		_energyPoints -= 25;
-		std::cout << "FR4G-TP " << target << " was attacked with " << attacks_pool[randNum] << " attack " << std::endl;
-	}
-	else
-		std::cout << "FR4G-TP " << _name << " has no energy." << std::endl;
-}
-
-void 			FragTrap::rangedAttack(std::string const & target)
+void 	SuperTrap::rangedAttack(std::string const & target)
 {
 		std::cout << "FRAG TRAP " << _name << " attacks ";
 		std::cout << target << " at range, causing ";
@@ -95,9 +82,9 @@ void 			FragTrap::rangedAttack(std::string const & target)
 		_hitPoints -= (_rangedAttackDamage - _armorDamageReduction);
 }
 
-void 			FragTrap::meleeAttack(std::string const &target)
+void 	SuperTrap::meleeAttack(std::string const &target)
 {
-		std::cout << "FRAG TRAP " << _name << " attacks ";
+		std::cout << "NINJA TRAP " << _name << " attacks ";
 		std::cout << target << " at melee, causing ";
 		std::cout << _melleeAttackDamage << " points of damage !" << std::endl;
 		_hitPoints -= (_melleeAttackDamage - _armorDamageReduction);

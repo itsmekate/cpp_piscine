@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   NinjaTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kprasol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/04 20:29:05 by kprasol           #+#    #+#             */
-/*   Updated: 2018/10/04 20:29:06 by kprasol          ###   ########.fr       */
+/*   Created: 2018/10/05 15:51:12 by kprasol           #+#    #+#             */
+/*   Updated: 2018/10/05 15:51:14 by kprasol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef NINJATRAP_HPP
+# define NINJATRAP_HPP
 #include <string>
 #include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-class FragTrap: public ClapTrap
+class NinjaTrap: public ClapTrap
 {
 
 	public:
-		FragTrap(void);
-		FragTrap(std::string n);
-		~FragTrap(void);
-		FragTrap(const FragTrap& src);
-		FragTrap& operator = (const FragTrap& rhs);
+		NinjaTrap(void);
+		NinjaTrap(std::string n);
+		~NinjaTrap(void);
+		NinjaTrap(const NinjaTrap& src);
+		NinjaTrap& operator = (const NinjaTrap& rhs);
 
-		void		vaulthunter_dot_exe(std::string const & target);
+		void	ninjaShoebox(ClapTrap ct);
+		void	ninjaShoebox(FragTrap ft);
+		void	ninjaShoebox(ScavTrap st);
+		void	ninjaShoebox(NinjaTrap nt);
+
 		void		rangedAttack(std::string const & target);
 		void		meleeAttack(std::string const &target);
 
 };
 #endif
+

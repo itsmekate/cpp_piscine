@@ -21,7 +21,7 @@ CPPFLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME):
-	g++ $(CPPFLAGS) $(SRCS) -o $(NAME)
+	clang++ $(CPPFLAGS) $(SRCS) -o $(NAME)
 
 clean:
 	rm -f $(OBJ)
@@ -32,4 +32,4 @@ fclean: clean
 re: fclean all
 
 %.o: %.cpp
-	g++ $(FLAGS) -o $@ -c $<
+	clang++ $(FLAGS) -o $@ -c $<

@@ -87,3 +87,18 @@ void 		FragTrap::vaulthunter_dot_exe(std::string const & target)
 		std::cout << "FR4G-TP " << _name << " has no energy." << std::endl;
 }
 
+void 			FragTrap::rangedAttack(std::string const & target)
+{
+		std::cout << "FRAG TRAP " << _name << " attacks ";
+		std::cout << target << " at range, causing ";
+		std::cout << _rangedAttackDamage << " points of damage !" << std::endl;
+		_hitPoints -= (_rangedAttackDamage - _armorDamageReduction);
+}
+
+void 			FragTrap::meleeAttack(std::string const &target)
+{
+		std::cout << "FRAG TRAP " << _name << " attacks ";
+		std::cout << target << " at melee, causing ";
+		std::cout << _melleeAttackDamage << " points of damage !" << std::endl;
+		_hitPoints -= (_melleeAttackDamage - _armorDamageReduction);
+}

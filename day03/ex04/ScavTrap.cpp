@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kprasol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,51 +12,52 @@
 
 #include "ClapTrap.hpp"
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 #include <string>
 #include <iostream>
 
-FragTrap::FragTrap(void)
+ScavTrap::ScavTrap(void)
 {
 	srand( time( NULL ) );
 	_hitPoints = 100;
 	_maxHitPoints = 100;
-	_energyPoints = 100;
-	_maxEnegryPoints = 100;
+	_energyPoints = 50;
+	_maxEnegryPoints = 50;
 	_level = 1;
 	_name = "Default name";
-	_melleeAttackDamage = 30;
-	_rangedAttackDamage = 20;
-	_armorDamageReduction = 5;
-	std::cout << "FragTrap Robot created" << std::endl;
+	_melleeAttackDamage = 20;
+	_rangedAttackDamage = 15;
+	_armorDamageReduction = 3;
+	std::cout << "Robot created" << std::endl;
 	return ;
 }
 
-FragTrap::FragTrap(std::string n)
+ScavTrap::ScavTrap(std::string n)
 {
 	srand( time( NULL ) );
 	_hitPoints = 100;
 	_maxHitPoints = 100;
-	_energyPoints = 100;
-	_maxEnegryPoints = 100;
+	_energyPoints = 50;
+	_maxEnegryPoints = 50;
 	_level = 1;
 	_name = n;
-	_melleeAttackDamage = 30;
-	_rangedAttackDamage = 20;
-	_armorDamageReduction = 5;
-	std::cout << "FragTrap Robot created" << std::endl;
+	_melleeAttackDamage = 20;
+	_rangedAttackDamage = 15;
+	_armorDamageReduction = 3;
+	std::cout << "Robot ScavTrap created" << std::endl;
 	return ;
 }
-FragTrap::~FragTrap(void)
+ScavTrap::~ScavTrap(void)
 {
-	std::cout << "FragTrap Robot destroyed" << std::endl;
+	std::cout << "Robot ScavTrap destroyed" << std::endl;
 	return ;
 }
-FragTrap::FragTrap(const FragTrap& src)
+ScavTrap::ScavTrap(const ScavTrap& src)
 {
 	*this = src;
 	return ;
 }
-FragTrap& FragTrap::operator = (const FragTrap& rhs)
+ScavTrap& ScavTrap::operator=(const ScavTrap& rhs)
 {
 	if(this != &rhs)
 	{
@@ -73,31 +74,31 @@ FragTrap& FragTrap::operator = (const FragTrap& rhs)
 	return *this;
 }
 
-void 		FragTrap::vaulthunter_dot_exe(std::string const & target)
+void 		ScavTrap::challengeNewcomer(std::string const & target)
 {
-	std::string attacks_pool[5] = {"superStrongAttack", "mildAttack", "justUsualAttack", "megaAttack", "crazyAttack"};
+	std::string challanges_pool[5] = {"crunchesChallenge", "plankChallange", "10kmRunChallenge", "21kmRunChallenge", "42kmRunChallenge"};
 	int randNum = rand() % 5;
 
 	if (_energyPoints >= 25)
 	{
 		_energyPoints -= 25;
-		std::cout << "FR4G-TP " << target << " was attacked with " << attacks_pool[randNum] << " attack " << std::endl;
+		std::cout << "FR4G-TP " << target << " was challenged with " << challanges_pool[randNum] << " challenge " << std::endl;
 	}
 	else
 		std::cout << "FR4G-TP " << _name << " has no energy." << std::endl;
 }
 
-void 			FragTrap::rangedAttack(std::string const & target)
+void 			ScavTrap::rangedAttack(std::string const & target)
 {
-		std::cout << "FRAG TRAP " << _name << " attacks ";
+		std::cout << "Scav TRAP " << _name << " attacks ";
 		std::cout << target << " at range, causing ";
 		std::cout << _rangedAttackDamage << " points of damage !" << std::endl;
 		_hitPoints -= (_rangedAttackDamage - _armorDamageReduction);
 }
 
-void 			FragTrap::meleeAttack(std::string const &target)
+void 			ScavTrap::meleeAttack(std::string const &target)
 {
-		std::cout << "FRAG TRAP " << _name << " attacks ";
+		std::cout << "Scav TRAP " << _name << " attacks ";
 		std::cout << target << " at melee, causing ";
 		std::cout << _melleeAttackDamage << " points of damage !" << std::endl;
 		_hitPoints -= (_melleeAttackDamage - _armorDamageReduction);

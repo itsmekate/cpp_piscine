@@ -53,10 +53,10 @@ bool Fixed::operator!=(Fixed const & rhs) { return (toFloat() != rhs.toFloat());
 //
 //	ARITHMETIC OPERATORS OVERLOAD PART
 //
-Fixed Fixed::operator+(Fixed const & rhs) { return Fixed(this->toFloat() + rhs.toFloat()); }
-Fixed Fixed::operator-(Fixed const & rhs) { return Fixed(this->toFloat() - rhs.toFloat()); }
-Fixed Fixed::operator*(Fixed const & rhs) { return Fixed(this->toFloat() * rhs.toFloat()); }
-Fixed Fixed::operator/(Fixed const & rhs) { return Fixed(this->toFloat() / rhs.toFloat()); }
+Fixed Fixed::operator+(Fixed const & rhs) const { return Fixed(toFloat() + rhs.toFloat()); }
+Fixed Fixed::operator-(Fixed const & rhs) const { return Fixed(toFloat() - rhs.toFloat()); }
+Fixed Fixed::operator*(Fixed const & rhs) const { return Fixed(toFloat() * rhs.toFloat()); }
+Fixed Fixed::operator/(Fixed const & rhs) const { return Fixed(toFloat() / rhs.toFloat()); }
 
 Fixed & Fixed::operator++(void){
 	_n++;

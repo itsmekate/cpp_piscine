@@ -5,20 +5,21 @@
 #                                                     +:+ +:+         +:+      #
 #    By: kprasol <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/10/01 12:23:12 by kprasol           #+#    #+#              #
-#    Updated: 2018/10/01 12:23:13 by kprasol          ###   ########.fr        #
+#    Created: 2018/10/03 19:09:39 by kprasol           #+#    #+#              #
+#    Updated: 2018/10/03 19:09:40 by kprasol          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook 
+NAME = human
 
-SRCS = Contact.class.cpp main.cpp
+SRCS = main.cpp
 
 OBJ = $(SRCS:.cpp=.o)
 
 CPPFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
+	@echo "\033[0;32mEXETUTABLE [human] CREATED"
 
 $(NAME):
 	clang++ $(CPPFLAGS) $(SRCS) -o $(NAME)
@@ -33,3 +34,4 @@ re: fclean all
 
 %.o: %.cpp
 	clang++ $(FLAGS) -o $@ -c $<
+

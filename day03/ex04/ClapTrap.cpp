@@ -10,18 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: kprasol <marvin@42.fr>                     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/04 20:29:09 by kprasol           #+#    #+#             */
-/*   Updated: 2018/10/04 20:29:10 by kprasol          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ClapTrap.hpp"
 #include <string>
 #include <iostream>
@@ -89,7 +77,7 @@ void			ClapTrap::setArmorDamageReduction(int amount){ _armorDamageReduction = am
 
 void 			ClapTrap::rangedAttack(std::string const & target)
 {
-		std::cout << "CLAP TRAP " << _name << " attacks ";
+		std::cout << "FR4G-TP " << _name << " attacks ";
 		std::cout << target << " at range, causing ";
 		std::cout << _rangedAttackDamage << " points of damage !" << std::endl;
 		_hitPoints -= (_rangedAttackDamage - _armorDamageReduction);
@@ -97,11 +85,12 @@ void 			ClapTrap::rangedAttack(std::string const & target)
 
 void 			ClapTrap::meleeAttack(std::string const &target)
 {
-		std::cout << "CLAP TRAP " << _name << " attacks ";
+		std::cout << "FR4G-TP " << _name << " attacks ";
 		std::cout << target << " at melee, causing ";
 		std::cout << _melleeAttackDamage << " points of damage !" << std::endl;
 		_hitPoints -= (_melleeAttackDamage - _armorDamageReduction);
 }
+
 void 			ClapTrap::takeDamage(unsigned int amount)
 {
 	if (_hitPoints < amount)

@@ -5,20 +5,21 @@
 #                                                     +:+ +:+         +:+      #
 #    By: kprasol <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/10/01 12:23:12 by kprasol           #+#    #+#              #
-#    Updated: 2018/10/01 12:23:13 by kprasol          ###   ########.fr        #
+#    Created: 2018/10/04 20:29:25 by kprasol           #+#    #+#              #
+#    Updated: 2018/10/04 20:29:26 by kprasol          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook 
+NAME = a.out
 
-SRCS = Contact.class.cpp main.cpp
+SRCS = ClapTrap.cpp FragTrap.cpp ScavTrap.cpp NinjaTrap.cpp SuperTrap.cpp main.cpp
 
 OBJ = $(SRCS:.cpp=.o)
 
 CPPFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
+	@echo "\033[0;32mEXETUTABLE [a.out] CREATED"
 
 $(NAME):
 	clang++ $(CPPFLAGS) $(SRCS) -o $(NAME)
@@ -33,3 +34,4 @@ re: fclean all
 
 %.o: %.cpp
 	clang++ $(FLAGS) -o $@ -c $<
+

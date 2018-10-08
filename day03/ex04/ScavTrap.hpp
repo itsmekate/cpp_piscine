@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.class.hpp                                  :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kprasol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/01 12:41:50 by kprasol           #+#    #+#             */
-/*   Updated: 2018/10/01 12:41:52 by kprasol          ###   ########.fr       */
+/*   Created: 2018/10/04 20:29:05 by kprasol           #+#    #+#             */
+/*   Updated: 2018/10/04 20:29:06 by kprasol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_CLASS_H
-# define CONTACT_CLASS_H
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 #include <string>
+#include "ClapTrap.hpp"
 
-class Contact {
+class ScavTrap : public ClapTrap
+{
 
-public:
+	public:
+		ScavTrap(void);
+		ScavTrap(std::string n);
+		~ScavTrap(void);
+		ScavTrap(const ScavTrap& src);
+		ScavTrap& operator=(const ScavTrap& rhs);
 
-	std::string first_name;
-	std::string last_name;
-	std::string nickname;
-	std::string login;
-	std::string postal_address;
-	std::string email_address;
-	std::string phone_number;
-	std::string birthday_date;
-	std::string favorite_meal;
-	std::string underwear_color;
-	std::string darkest_secret;
+		void 		challengeNewcomer(std::string const & target);
 
-	Contact( void );
-	~Contact( void );
+		void		rangedAttack(std::string const & target);
+		void		meleeAttack(std::string const &target);
 
-	void	add( void );
-	
 };
-
 #endif

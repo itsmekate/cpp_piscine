@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   SuperTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kprasol <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/04 20:29:05 by kprasol           #+#    #+#             */
-/*   Updated: 2018/10/04 20:29:06 by kprasol          ###   ########.fr       */
+/*   Created: 2018/10/05 18:42:09 by kprasol           #+#    #+#             */
+/*   Updated: 2018/10/05 18:42:14 by kprasol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef SUPERTRAP_HPP
+# define SUPERTRAP_HPP
 #include <string>
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "NinjaTrap.hpp"
 
-class FragTrap: public ClapTrap
+class SuperTrap : public FragTrap, public NinjaTrap
 {
-
+	
 	public:
-		FragTrap(void);
-		FragTrap(std::string n);
-		~FragTrap(void);
-		FragTrap(const FragTrap& src);
-		FragTrap& operator = (const FragTrap& rhs);
+		SuperTrap(void);
+		SuperTrap(std::string n);
+		~SuperTrap(void);
+		SuperTrap(const SuperTrap& src);
+		SuperTrap& operator = (const SuperTrap& rhs);
 
-		void		vaulthunter_dot_exe(std::string const & target);
 		void		rangedAttack(std::string const & target);
 		void		meleeAttack(std::string const &target);
 
 };
 #endif
+
