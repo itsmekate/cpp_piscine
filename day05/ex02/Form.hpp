@@ -25,16 +25,18 @@ class Form
 	public:
 		Form(void);
 		Form(std::string const name, int const _gradeToSign, int const _gradeToExecute);
-		~Form();
+		virtual ~Form() = 0;
 
 		Form( Form const & src); 				
 		Form & operator=(Form const & rhs);	
 
 		std::string	getName() const;
 		bool		getSigned() const;
+		void		setSigned(bool b);
 		int			getGradeToSign() const;
 		int			getGradeToExecute() const;
 		void		beSigned(Bureaucrat &b);
+		virtual void		execute(Bureaucrat const & executor) const = 0;
 
 		class GradeTooHighException : public std::exception
 		{

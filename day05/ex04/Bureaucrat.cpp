@@ -48,8 +48,11 @@ Bureaucrat & Bureaucrat::operator=(Bureaucrat const & rhs)
 
 void	Bureaucrat::signForm(Form &f)
 {
-	if(f.getSigned())
+	if(_grade < f.getGradeToSign())
+	{
+		f.setSigned(true);
 		std::cout << _name << " signs " << f.getName() <<std::endl;
+	}
 	else
 		std::cout << _name << " cannot sign " << f.getName() << " because grade is too low ." << std::endl;
 }
@@ -72,6 +75,13 @@ void		Bureaucrat::setGrade(int grade)
 	else
 		this->_grade = grade;
 }
+
+void Bureaucrat::executeForm(Form const & form)
+{
+	form.execute(*this);
+	std::cout << form.getName() << " succesfully executed" << std::endl;
+}
+
 //
 // GRADE_TOO_HIGH_EXCEPTION_CLASS
 //

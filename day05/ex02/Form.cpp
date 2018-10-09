@@ -13,10 +13,9 @@
 #include "Header.hpp"
 
 Form::Form(void) : _name("default"), _signed(0), _gradeToSign(0), _gradeToExecute(0){
-
 }
 Form::Form(std::string const name, int const gradeToSign, int const gradeToExecute)
- : _name(name), _signed(0), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
+ : _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
  {
 	if (gradeToSign < 1)
 		throw GradeTooHighException();
@@ -49,6 +48,8 @@ bool				Form::getSigned() const
 	return _signed;
 }
 
+void		Form::setSigned(bool b) {_signed = b;}
+
 int			Form::getGradeToSign() const 
 {
 	return _gradeToSign;
@@ -62,7 +63,10 @@ int			Form::getGradeToExecute() const
 void	Form::beSigned(Bureaucrat &b)
 {
 	if (b.getGrade() > _gradeToSign)
+	{
+		std::cout << "b.getGrade() = "<< b.getGrade() << " > _gradeToSign = " << _gradeToSign << std::endl;
 		throw GradeTooLowException();
+	}
 	else
 		_signed = 1;
 }

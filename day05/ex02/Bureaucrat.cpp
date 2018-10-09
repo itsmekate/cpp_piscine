@@ -72,6 +72,13 @@ void		Bureaucrat::setGrade(int grade)
 	else
 		this->_grade = grade;
 }
+
+void Bureaucrat::executeForm(Form const & form)
+{
+	form.execute(*this);
+	std::cout << _name << " executes " << form.getName() << std::endl;
+}
+
 //
 // GRADE_TOO_HIGH_EXCEPTION_CLASS
 //

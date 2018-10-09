@@ -14,36 +14,25 @@
 
 int main()
 {
-	Bureaucrat bob =  Bureaucrat("Bob", 150);
-	Bureaucrat marie = Bureaucrat("Marie", 42);
-	Bureaucrat alex =  Bureaucrat("Alex", 1);
-	Bureaucrat mark = Bureaucrat("Mark", 12);
+	Intern someRandomIntern;
+	Form* rrf;
+	Form* swear;
 
-	Form contract = Form("contract", 15, 15);
-	Form certificate = Form("certificate", 15, 15);
-
-	std::cout << bob;
-	std::cout << marie;
-	std::cout << alex;
-	try
+	try 
 	{
-		std::cout << "Asking Alex to sign" << std::endl;
-		contract.beSigned(alex);
-		alex.signForm(contract);
-		std::cout << contract;
+		
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 	}
-	catch (Form::GradeTooLowException e)
+	catch (Intern::FormDoesntExistException e)
 	{
 		std::cout << e.what() << std::endl;
 	}
 	try
 	{
-		std::cout << "Asking Bob to sign" << std::endl;
-
-		std::cout << certificate;
-		certificate.beSigned(bob);
+		
+		swear = someRandomIntern.makeForm("swear permission", "Bender");
 	}
-	catch (Form::GradeTooLowException e)
+	catch (Intern::FormDoesntExistException e)
 	{
 		std::cout << e.what() << std::endl;
 	}
