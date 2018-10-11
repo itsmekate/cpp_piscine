@@ -1,22 +1,48 @@
 
+#ifndef ARRAY_HPP
+#define ARRAY_HPP
+
 template<typename T>
-// template<class T>
 class Array
 {
 	private:
-		T	_Array[n];
+		T*	_array;
+		size_t 	_n;
 
 	public:
-		Array(){_Array = new Array[n]}
-		Array(unsigned int n)
+		Array() : _array(NULL), _n(0){}
+		Array(unsigned int n) : _array(new T[n]), _n(n) {}
+		Array(Array const &rhs) {*this = rhs;}
+		Array & operator=(Array &rhs)
 		{
-			_Array = new Array[n]
-			for (int i = 0; i < n; ++i)
+			if (*this != rhs)
 			{
-				_Array[i] = new int();
+				_n = rhs.getSize();
+				_array = new T[_n];
+				for (int i = 0; i < _n; ++i)
+				{
+					_array[i] = rhs[i];
+				}
 			}
-			int * a = new int()
+			return (*this);
 		}
-		~Array(){}
-		int size()const{return n;}
+		~Array(){delete [] _array;}
+
+		int getSize()const{return _n;}
+
+		T operator[](size_t n) const
+		{
+			if(n > _n)
+				throw std::exception();
+			return _array[n];
+		}
+
+		T & operator[](size_t n)
+		{
+			if(n > _n)
+				throw std::exception();
+			return _array[n];
+		}
 };
+
+#endif
