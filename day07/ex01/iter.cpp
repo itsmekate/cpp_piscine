@@ -13,8 +13,8 @@
 #include <iostream>
 #include <string>
 
-template <typename T>
-void	iter(T *array, int length, void function(T a))
+template <typename T, typename L>
+void	iter(T *array, L length, void function(T a))
 {
 	for (int i = 0; i < length; ++i)
 	{
@@ -36,5 +36,3 @@ int main()
 	iter(arr1, 5, print_out);
 	iter(arr2, 5, print_out);
 }
-
-
