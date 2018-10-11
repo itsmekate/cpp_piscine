@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
 
 template <typename T>
 void	iter(T *array, int length, void function(T a))
@@ -21,12 +22,8 @@ void	iter(T *array, int length, void function(T a))
 	}
 }
 
-void	print_out(int a)
-{
-	std::cout << a << std::endl;
-}
-
-void	print_out_char(char a)
+template <typename T>
+void	print_out(T a)
 {
 	std::cout << a << std::endl;
 }
@@ -37,5 +34,7 @@ int main()
 	char arr2[5] = {'a', 'b', 'c', 'd', 'e'};
 
 	iter(arr1, 5, print_out);
-	iter(arr2, 5, print_out_char);
+	iter(arr2, 5, print_out);
 }
+
+
