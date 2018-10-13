@@ -13,6 +13,17 @@
 #ifndef MUTANTSTACK_HPP
 #define MUTANTSTACK_HPP
 
+template<typename T>
+class MutantStack : std::stack<T, Container>
+{
+	public:
+		MutantStack();
+		MutantStack(MutantStack &rhs);
+		MutantStack const & MutantStack(MutantStack &rhs);
+		~MutantStack();
 
+		begin(){}
+		end(){}
+}
 
 #endif
